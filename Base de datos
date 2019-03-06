@@ -1,0 +1,57 @@
+create database kardex;
+
+create table usuario(
+id varchar (3) ,
+usr varchar (30),
+pwd varchar(50),
+cat int (2));
+
+create table especialidad(
+id varchar(3),
+nombre varchar(30),
+clave int(3),
+constraint PK_clave primary key (clave)
+);
+
+create table profesor(
+id varchar(3),
+clave int(3),
+nombre varchar (20),
+paterno varchar (15),
+materno varchar (15),
+constraint PK_clave primary key (clave)
+);
+
+
+create table curso(
+id varchar(3),
+clave int (3),
+nombre varchar (20),
+especialidad varchar (30),
+semestre int (2),
+constraint PK_clave primary key (clave)
+);
+
+create table calificacion(
+id varchar (3),
+matricula varchar(10),
+curso int (3),
+profesor int(3),
+periodo int (1),
+calif double (4,2),
+constraint PK_matricula primary key (matricula),
+constraint FK_curso foreign key (curso) references curso(clave),
+constraint FK_profesor foreign key (profesor) references profesor(clave)
+);
+
+create table alumno(
+id varchar (3),
+matricula varchar(10),
+nombre varchar (20),
+paterno varchar (15),
+materno varchar (15),
+especialidad int(3),
+fingreso date,
+constraint PK_matricula primary key (matricula),
+constraint FK_especialida foreign key (especialidad) references especialidad(clave)
+);
