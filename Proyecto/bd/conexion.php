@@ -1,6 +1,6 @@
 <?php
 $user = 'root';
-$password = 'Ragde1997';
+$password = '123456';
 $db = 'kardex';
 $host = 'localhost';
 $port = 81;
