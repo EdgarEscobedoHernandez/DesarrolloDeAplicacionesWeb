@@ -1,5 +1,7 @@
 create database kardex;
 
+use kardex;
+
 create table usuario(
 id varchar (3) ,
 usr varchar (30),
