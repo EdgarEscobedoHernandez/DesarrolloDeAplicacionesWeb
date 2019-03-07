@@ -16,6 +16,9 @@ session_start();
 			case'Especialidades':
 				top.frames[2].location.href="../especialidades/shwEspecialidades.php"
 				break;
+			case 'Profesores':
+				top.frames[2].location.href="../profesores/shwProfesores.php"
+				break;
 			case'Materias':
 				top.frames[2].location.href="../materias/shwMaterias.php";
 				break;
@@ -43,6 +46,11 @@ session_start();
 		<tr>
 			<td>
 				<input type="button" value="Especialidades" class="tamanoBoton" onclick="opcion('Especialidades');">
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<input type="button" value="Profesores" class="tamanoBoton" onclick="opcion('Profesores');">
 			</td>
 		</tr>
 		<tr>
