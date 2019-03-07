@@ -1,75 +1,87 @@
 <?php
-  session_start();
+
+session_start();
   if(empty($_SESSION['usr'])){
-    echo "Debe autenticarse";
-    exit();
+    echo "Debe auteniticarse";
+		exit();
   }
+  
+  include '../bd/conexion.php';
 
-  include '../bd/conexiones.php';
-
-  //obtener el id para recuperar el registro correspondiente
+  //obtenet el id para recuperar el registro correspondiente
   $id = $_GET['id'];
 
-  //obtener la colección de registros que corresponde al id enviado
-  $strQry = "SELECT * FROM especialidad WHERE id = '$id'";
+  //obtener la coleccion de registros que corresponden al id enviad
+  $strQry = "SELECT * FROM especialidad WHERE id=$id;";
 
   //ejecutar la consulta
   $tablaBD = mysqli_query($link, $strQry);
 
-  //Sacar los datos de la tabla de registros intermedios
+  //sacar los datos de la tabla de registros intermedios
   $registro = mysqli_fetch_array($tablaBD);
   $nombre = $registro['nombre'];
 
-  //Construir el html de la interfaz para la opción de modificar
+  //contruir el html de la interface para la opcion de modificar
   echo "
   <html>
   <head>
-    <title></title>
-    <script type = 'text/javascript'>
-     fcuntion enviar (opc){
+  	<title></title>
+  	<script type='text/javascript'>
+  		function enviar(opc){
+  			switch(opc){
+  				case 'upd':
+  					document.getElementById('txtOpc').value = 'upd';
+  					document.getElementById('txtId').value = '".$id."';
+  					document.getElementById('frmUpdEspecialidades').submit();
+  				break;
 
-       if(opc == 'regresar'){
-         window.location = 'shwEspecialidades.php';
-       }
+  				case 'del':
+  					document.getElementById('txtOpc').value = 'del';
+  					document.getElementById('txtId').value = '".$id."';
+  					document.getElementById('frmUpdEspecialidades').submit();
+  				break;
 
-       document.getElementById('txtId').value = '". $id ."';
+  				case 'regresar':
+  					window.location.href = './shwEspecialidades.php';
+  				break;
+  			}
+  			
+  		}
+  	</script>
+  </head>
+  <body>
+  	<form  name='frmUpdEspecialidades' id='frmUpdEspecialidades' action='./qryEspecialidades.php' method='POST'>
+  		<table align='center' width='400' border='0'>
+  			<tr height='100'>
+  				<td colspan='2' align='center'>
+  					<b>Modificando especialidades</b>
+  				</td>
+  			</tr>
+  			<tr>
+  				<td align='right' width='200'>Id:&nbsp&nbsp</td>
+  				<td>$id</td>
+  			</tr>
+  			<tr>
+  				<td align='right'>Nombre:&nbsp&nbsp</td>
+  				<td><input type='text' name='txtNombre' id='txtNombre' value='$nombre' autofocus></td>
+  			</tr>
+  			<tr height='80'>
+  				<td colspan='2' align='center'>
+  					
+  					<input type='hidden' name='txtOpc' id='txtOpc'>
+  					<input type='hidden' name='txtId' id='txtId'>
 
-
-       if(opc == 'upd'){
-         document.getElementById('txtOpc').value = 'upd';
-       } else if(opc == 'del'){
-         document.getElementById('txtOpc').value = 'del';
-       }
-
-       document.getElementById('frmUpdEspecialidades').submit();
-
-     }
-     </script>
-   </head>
-   <body>
-   <form name = 'frmUpdEspecialidades' id = 'frmUpdEspecialidades' action = './qryEspecialidades.php' method = 'POST'>
-    <table align='center' width='400' border='0'>
-      <tr height='100'>
-        <td colspan='2' align='center'><b>Modificando Especialidades</b></td>
-      </tr>
-      <tr>
-        <td align='right' width = '200'>Id:&nbps&nbsp</td>
-        <td> $id </td>
-      </tr>
-      <tr>
-        <td align='right' width = '200'>Nombre:&nbps&nbsp</td>
-        <td><input type='text' id='txtNombre' name='txtNombre' value='$nombre' autofocus></td>
-      </tr>
-
-      <tr height='80'>
-        <td colspan = '2' align = 'center'>
-        <input type='button' id = 'btnGrabar' name = 'btnGrabar' value = 'Grabar' style = 'width: 100px' onClick = 'enviar(\"upd\")'>
-        <input type='button' id = 'btnEliminar' name = 'btnEliminar' value = 'Eliminar' style = 'width: 100px' onClick = 'enviar(\"del\")'>
-        <input type='button' id = 'btnRegresar' name = 'btnRegresar' value = 'Regresar' style = 'width: 100px' onClick = 'enviar(\"regresar\")'>
-      </tr>
-    </table>
-    <input type='hidden' id='txtOpc' name='txtOpc'>
-    <input type='hidden' id='txtId' name='txtId'>
+  					<input type='button' name='btnGrabar' id='btnGrabar' value='Grabar' style='width: 100px' onClick='enviar(\"upd\")'>
+  					
+  					<input type='button' name='btnEliminar' id='btnEliminar' value='Eliminar' style='width: 100px' onClick='enviar(\"del\")'>
+  					
+  					<input type='button' name='btnRegresar' id='btnRegresar' value='Regresar' style='width: 100px' onClick='enviar(\"regresar\")'>
+  				</td>
+  			</tr>
+  		</table>
+  		
+  	</form>
+  </body>
   </html>
   ";
 ?>

@@ -1,3 +1,0 @@
-Para la conexión con la base de datos estamos tomando en cuenta que el usuario es 
-usuario = root
-password = 123456
