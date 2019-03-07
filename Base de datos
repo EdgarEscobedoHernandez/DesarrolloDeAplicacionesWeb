@@ -2,11 +2,28 @@ create database kardex;
 
 use kardex;
 
-create table usuario(
-id varchar (3) ,
-usr varchar (30),
-pwd varchar(50),
-cat int (2));
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuario`
+--
+
+CREATE TABLE `usuario` (
+  `usr` varchar(30) NOT NULL,
+  `pwd` varchar(50) DEFAULT NULL,
+  `cat` int(2) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Índices para tablas volcadas
+--
+
+--
+-- Indices de la tabla `usuario`
+--
+ALTER TABLE `usuario`
+  ADD PRIMARY KEY (`usr`);
+COMMIT;
 
 create table especialidad(
 id varchar(3),
