@@ -66,15 +66,15 @@ session_start();
   				<td>$clave</td>
   			</tr>
   			<tr>
-                <td align='right'>Nombre:&nbsp&nbsp</td>
+                <td align='right'>Nombre(s):&nbsp&nbsp</td>
                 <td><input type='text' name='txtNombre' id='txtNombre' value='$nombre' autofocus></td>
             </tr>
             <tr>
-  				<td align='right'>Nombre:&nbsp&nbsp</td>
+  				<td align='right'>Apellido Paterno:&nbsp&nbsp</td>
   				<td><input type='text' name='txtPaterno' id='txtPaterno' value='$paterno' autofocus></td>
             </tr>
             <tr>
-  				<td align='right'>Nombre:&nbsp&nbsp</td>
+  				<td align='right'>Apellido Materno:&nbsp&nbsp</td>
   				<td><input type='text' name='txtMaterno' id='txtMaterno' value='$materno' autofocus></td>
   			</tr>
   			<tr height='80'>
