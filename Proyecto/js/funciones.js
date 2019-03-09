@@ -40,6 +40,38 @@ function grabar(opc){
 		}
 		document.getElementById("frmAddProfesores").submit();
 		break;
+
+		case 'alumnos':
+		document.getElementById("txtOpc").value = 'add';
+		if(document.getElementById("txtMatricula").value == '') {
+			alert('Error en los datos reviselos!');
+			document.getElementById("txtMatricula").focus();
+			return false;
+		}else{
+			document.getElementById("txtId").value = document.getElementById("txtMatricula").value.substring(0, 3);
+			alert(document.getElementById("txtOpc").value);
+			alert(document.getElementById("txtMatricula").value);
+			
+		}
+		if (document.getElementById("txtNombres").value == '') {
+			alert('Error en los datos reviselos');
+			document.getElementById("txtNombres").focus();
+			return false;
+		}
+
+		if (document.getElementById("txtPaterno").value == '') {
+			alert('Error en los datos reviselos');
+			document.getElementById("txtPaterno").focus();
+			return false;
+		}
+
+		if (document.getElementById("txtMaterno").value == '') {
+			alert('Error en los datos reviselos');
+			document.getElementById("txtMaterno").focus();
+			return false;
+		}
+		document.getElementById("frmAddAlumnos").submit();
+		break;
 	}
 	
 }

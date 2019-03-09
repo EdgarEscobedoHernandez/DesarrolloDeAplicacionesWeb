@@ -61,8 +61,7 @@ session_start();
 								<td>$nombre</td>
 							</tr>";
   				}
-  			//echo "	</table>
-  					//</tbody>";
+
   			}
   			else{
   				//notificar que no existe registros en la tabla especialidades
@@ -88,7 +87,7 @@ session_start();
 
 
   		</body>
-	
+
 
 
 <script type='text/javascript'>
