@@ -18,7 +18,7 @@ session_start();
   	<!DOCTYPE html>
   	<html>
   	<head>
-  		<title>shw Especialidades</title>
+  		<title> shw Especialidades</title>
   	</head>
   	<body>
   		<table align='center' width='400' border='0'>
