@@ -60,7 +60,7 @@ session_start();
 		</tr>
 		<tr>
 			<td>
-				<input type="button" value="Alumnos" class="tamanoBoton" onclick="opcion('Alumonos');">
+				<input type="button" value="Alumonos" class="tamanoBoton" onclick="opcion('Alumonos');">
 			</td>
 		</tr>
 		<tr>
