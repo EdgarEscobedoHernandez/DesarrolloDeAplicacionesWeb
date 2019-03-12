@@ -7,9 +7,9 @@
     }
 
     include '../bd/conexion.php';
-    $qry = 'SELECT A.matricula, A.nombre,A.paterno,A.materno, E.nombre especialidad,A.fingreso  FROM
-    alumno A JOIN especialidad E ON A.id = E.id ORDER BY A.nombre;';
-
+    $qry = 'SELECT alumno.matricula, alumno.nombre, alumno.paterno, alumno.materno, especialidad.nombre especialidad 
+    FROM alumno, especialidad 
+    WHERE alumno.especialidad = especialidad.clave;';
     $tablaBD = mysqli_query($link, $qry);
 
     if(mysqli_num_rows($tablaBD)>0){
@@ -20,7 +20,7 @@
       <head>
         <title>shw Especialidades</title>
       </head>
-      <body>ivan
+      <body>
         <table align='center' width='400' border='0'>
           <tr>
             <td colspan='2' align='center'>
@@ -47,7 +47,7 @@
           <tbody style="overflow: auto;">
             <?php
             //desplegar los registros de la tabla especialidades de la bd
-            while ( $registro = mysqli_fetch_array($tablaBD)) {
+            while ($registro = mysqli_fetch_array($tablaBD)) {
 
               $matricula = $registro['matricula'];
               $nombre = $registro['nombre'];
@@ -64,7 +64,7 @@
                   onMouseOut='javascript:this.bgColor=\"#ffffff\";
                 this.style.cursor=\"default\";'
 
-                  onclick='javascript:window.location.href=\"./updAlumnos.php?id=$id\";'>
+                  onclick='javascript:window.location.href=\"./updAlumnos.php?matricula=$matricula\";'>
 
                   <td width='50'>$matricula</td>
                   <td width = '50'>$nombre</td>

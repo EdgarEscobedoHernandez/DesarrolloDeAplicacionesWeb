@@ -49,8 +49,6 @@ function grabar(opc){
 			return false;
 		}else{
 			document.getElementById("txtId").value = document.getElementById("txtMatricula").value.substring(0, 3);
-			alert(document.getElementById("txtOpc").value);
-			alert(document.getElementById("txtMatricula").value);
 			
 		}
 		if (document.getElementById("txtNombres").value == '') {

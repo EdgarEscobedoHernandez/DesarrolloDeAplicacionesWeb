@@ -10,7 +10,6 @@ session_start();
 
   //obtenet el id para recuperar el registro correspondiente
   $id = $_GET['id'];
-
   //obtener la coleccion de registros que corresponden al id enviad
   $strQry = "SELECT * FROM especialidad WHERE id=$id;";
 
