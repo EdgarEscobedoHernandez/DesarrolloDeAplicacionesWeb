@@ -20,7 +20,7 @@
       <head>
         <title>shw Especialidades</title>
       </head>
-      <body>ivan
+      <body>
         <table align='center' width='400' border='0'>
           <tr>
             <td colspan='2' align='center'>
@@ -64,7 +64,7 @@
                   onMouseOut='javascript:this.bgColor=\"#ffffff\";
                 this.style.cursor=\"default\";'
 
-                  onclick='javascript:window.location.href=\"./updAlumnos.php?id=$id\";'>
+                  onclick='javascript:window.location.href=\"./updAlumnos.php id=$id\";'>
 
                   <td width='50'>$matricula</td>
                   <td width = '50'>$nombre</td>

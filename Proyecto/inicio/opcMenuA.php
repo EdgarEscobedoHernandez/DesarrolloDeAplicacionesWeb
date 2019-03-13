@@ -22,7 +22,7 @@ session_start();
 			case'Materias':
 				top.frames[2].location.href="../materias/shwMaterias.php";
 				break;
-			case'Alumonos':
+			case'Alumnos':
 				top.frames[2].location.href="../alumnos/shwAlumnos.php";
 				break;
 			case'Calificaciones':
@@ -60,7 +60,7 @@ session_start();
 		</tr>
 		<tr>
 			<td>
-				<input type="button" value="Alumonos" class="tamanoBoton" onclick="opcion('Alumonos');">
+				<input type="button" value="Alumnos" class="tamanoBoton" onclick="opcion('Alumnos');">
 			</td>
 		</tr>
 		<tr>
