@@ -7,7 +7,7 @@ session_start();
   }
 
   include '../bd/conexion.php';
-  $qry = 'SELECT * FROM especialidad ORDER BY especialidad.clave;';
+  $qry = 'SELECT * FROM calificacion ORDER BY calificacion.matricula;';
 
   $tablaBD = mysqli_query($link, $qry);
 
@@ -18,7 +18,7 @@ session_start();
   	<!DOCTYPE html>
   	<html>
   	<head>
-  		<title> shw Especialidades</title>
+  		<title>shw Calificaciones</title>
   	</head>
   	<body>
   		<table align='center' width='400' border='0'>
@@ -37,8 +37,11 @@ session_start();
   		<table align='center' border='1' width='400'>
   			<thead>
   				<tr style='background-color: #BAB7B7'>
-  					<th width='50' height='20'>Calve</th>
-  					<th height='20'>Nombre</th>
+  					<th width='70' height='20'>Matricula</th>
+  					<th height='20'>Curso</th>
+            <th height='20'>Profesor</th>
+            <th height='20'>Periodo</th>
+            <th height='20'>Calificacion</th>
   				</tr>
   			</thead>
   			<tbody style="overflow: auto;">
@@ -46,22 +49,29 @@ session_start();
   				//desplegar los registros de la tabla especialidades de la bd
   				while ( $registro = mysqli_fetch_array($tablaBD)) {
   					$id = $registro['id'];
-  					$clave = $registro['clave'];
-  					$nombre = $registro['nombre'];
+  					$matricula = $registro['matricula'];
+  					$curso = $registro['curso'];
+            $profesor = $registro['profesor'];
+            $periodo = $registro['periodo'];
+            $calif = $registro['calif'];
   					echo "<tr
   							onMouseOver='javascript:this.bgColor=\"#bcf5a9\";
   							this.style.cursor=\"pointer\";'
 
   							onMouseOut='javascript:this.bgColor=\"#ffffff\";
-							this.style.cursor=\"default\";'
+                this.style.cursor=\"default\";'
 
-  							onclick='javascript:window.location.href=\"./updEspecialidades.php?id=$id\";'>
+  							onclick='javascript:window.location.href=\"./updCalificaciones.php?matricula=$matricula\";'>
 
-								<td width='50'>$clave</td>
-								<td>$nombre</td>
+								<td width='50'>$matricula</td>
+								<td>$curso</td>
+                <td>$profesor</td>
+                <td>$periodo</td>
+                <td>$calif</td>
 							</tr>";
   				}
-
+  			//echo "	</table>
+  					//</tbody>";
   			}
   			else{
   				//notificar que no existe registros en la tabla especialidades
@@ -71,7 +81,7 @@ session_start();
   						<td></td>
   					</tr>
   					<tr align='center'>
-  						<td align='center'><font color='#ff3333'>No existen egistros en la tabla de Especialidades!!</font></td>
+  						<td align='center'><font color='#ff3333'>No existen registros en la tabla de Calificaciones!!</font></td>
   					</tr>
   				</table>
   			</body>
@@ -87,13 +97,13 @@ session_start();
 
 
   		</body>
-
+	
 
 
 <script type='text/javascript'>
 	function enviar(){
 		document.getElementById('txtOpc').value='add';
-		window.location.href = 'addEspecialidades.php';
+		window.location.href = 'addCalificaciones.php';
 	}
 </script>
 </html>

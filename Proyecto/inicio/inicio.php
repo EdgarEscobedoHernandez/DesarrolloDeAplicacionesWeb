@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Saucedo Cordova Cesar</title>
+    <title>Jaqui Garcia </title>
   </head>
   <body style="font-family: arial;">
     <form action="./qryAutentica.php" method="POST">
