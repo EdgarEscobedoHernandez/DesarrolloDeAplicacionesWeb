@@ -18,10 +18,11 @@
 			$nombres = mysqli_real_escape_string($link, $_POST['txtNombres']);
 			$paterno = mysqli_real_escape_string($link, $_POST['txtPaterno']);
 			$materno = mysqli_real_escape_string($link, $_POST['txtMaterno']);
+			$especialidad =  mysqli_real_escape_string($link, $_POST['txtEspecialidad']);
 			$date= mysqli_real_escape_string($link, $_POST['date']);
 			
 			$strQry = "INSERT INTO alumno (id, matricula, nombre, paterno, materno,especialidad, fingreso) 
-			VALUES ('$id','$matricula', '$nombres','$paterno','$materno', 1, '$date');";
+			VALUES ('$id','$matricula', '$nombres','$paterno','$materno', '$especialidad', '$date');";
 			$result = mysqli_query($link, $strQry) or
 			die("*** Error al ejecutar el query: ". $error= mysqli_error($link));
 

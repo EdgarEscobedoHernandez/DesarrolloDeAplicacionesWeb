@@ -68,6 +68,16 @@ function grabar(opc){
 			document.getElementById("txtMaterno").focus();
 			return false;
 		}
+		if (document.getElementById("txtEspecialidad").value == '') {
+			alert('Error en los datos reviselos');
+			document.getElementById("txtEspecialidad").focus();
+			return false;
+		}
+		if (document.getElementById("date").value == '') {
+			alert('Error en los datos reviselos');
+			document.getElementById("date").focus();
+			return false;
+		}
 		document.getElementById("frmAddAlumnos").submit();
 		break;
 	}
