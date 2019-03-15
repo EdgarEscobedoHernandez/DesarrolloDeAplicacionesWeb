@@ -26,7 +26,7 @@ session_start();
 				top.frames[2].location.href="../alumnos/shwAlumnos.php";
 				break;
 			case'Calificaciones':
-				top.frames[2].location.href="../calificacione/shwCalificaciones.php";
+				top.frames[2].location.href="../calificaciones/shwCalificaciones.php";
 				break;
 			case'Terminar':
 				window.top.location.href="http://www.google.com";
