@@ -80,6 +80,31 @@ function grabar(opc){
 		}
 		document.getElementById("frmAddAlumnos").submit();
 		break;
+
+		case 'cursos':
+		document.getElementById("txtOpc").value = 'add';
+		if(document.getElementById("txtClave").value == '') {
+			alert('Error en los datos reviselos!');
+			document.getElementById("txtClave").focus();
+			return false;
+		}
+		if (document.getElementById("txtNombre").value == '') {
+			alert('Error en los datos reviselos!');
+			document.getElementById("txtNombre").focus();
+			return false;
+		}
+		if (document.getElementById("txtEspecialidad").value == '') {
+			alert('Error en los datos reviselos!');
+			document.getElementById("txtEspecialidad").focus();
+			return false;
+		}
+		if (document.getElementById("txtSemestre").value == '') {
+			alert('Error en los datos reviselos!');
+			document.getElementById("txtSemestre").focus();
+			return false;
+		}
+		document.getElementById("frmAddCursos").submit();
+		break;
 	}
 	
 }

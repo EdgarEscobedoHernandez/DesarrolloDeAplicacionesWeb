@@ -13,13 +13,17 @@
 	<title>Agregar Cursos</title>
 </head>
 <body>
-<form id='frmAddEspecialidades' action='./qryCursos.php' method='POST'>
+<form id='frmAddCursos' action='./qryCursos.php' method='POST'>
 	<table align='center' border='0'>
 		<tr height='50'>
 			<td colspan='2' align='center'>
 			<b>Agregando Cursos</b>
 			<input type='hidden' id='txtOpc' name='txtOpc' value='add'>
 			</td>
+		</tr>
+		<tr>
+			<td>Clave</td>
+			<td><input type='text' id='txtClave' name='txtClave' autofocus></td>
 		</tr>
 		<tr>
 			<td>Nombre</td>
@@ -30,8 +34,8 @@
 			<td><input type='text' id='txtEspecialidad' name='txtEspecialidad' maxlength="20" autofocus=""></td>
 		</tr>
 		<tr>
-			<td>Clave</td>
-			<td><input type='text' id='txtClave' name='txtClave' maxlength="20" autofocus=""></td>
+			<td>Semestre</td>
+			<td><input type='text' id='txtSemestre' name='txtSemestre' maxlength="20" autofocus=""></td>
 		</tr>
 	</table>
 	<table align='center'>
