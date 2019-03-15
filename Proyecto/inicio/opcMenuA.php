@@ -22,7 +22,7 @@ session_start();
 			case'Cursos':
 				top.frames[2].location.href="../cursos/shwCursos.php";
 				break;
-			case'Alumonos':
+			case'Alumnos':
 				top.frames[2].location.href="../alumnos/shwAlumnos.php";
 				break;
 			case'Calificaciones':
