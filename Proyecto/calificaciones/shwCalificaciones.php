@@ -7,7 +7,7 @@ session_start();
   }
 
   include '../bd/conexion.php';
-  $qry = 'SELECT * FROM calificacion ORDER BY calificacion.matricula;';
+  $qry = 'SELECT calificacion.matricula,CONCAT_WS(\' \',alumno.nombre, alumno.materno, alumno.paterno) AS \'alumno\', curso.nombre, CONCAT_WS(\' \',profesor.nombre, profesor.materno, profesor.paterno) AS \'profesor\', calificacion.periodo, calificacion.calif FROM calificacion,alumno,profesor,curso WHERE calificacion.matricula=alumno.matricula AND calificacion.profesor=profesor.clave AND calificacion.curso=curso.clave ORDER BY calificacion.matricula;';
 
   $tablaBD = mysqli_query($link, $qry);
 
@@ -34,27 +34,28 @@ session_start();
   				</td>
   			</tr>
   		</table>
-  		<table align='center' border='1' width='400'>
+  		<table align='center' border='1' width='900'>
   			<thead>
   				<tr style='background-color: #BAB7B7'>
-  					<th width='70' height='20'>Matricula</th>
-  					<th height='20'>Curso</th>
-            <th height='20'>Profesor</th>
-            <th height='20'>Periodo</th>
-            <th height='20'>Calificacion</th>
+  					<th width='100' height='20'>Matricula</th>
+            <th>Alumno</th>
+  					<th>Curso</th>
+            <th>Profesor</th>
+            <th>Periodo</th>
+            <th>Calificacion</th>
   				</tr>
   			</thead>
   			<tbody style="overflow: auto;">
   				<?php
   				//desplegar los registros de la tabla especialidades de la bd
   				while ( $registro = mysqli_fetch_array($tablaBD)) {
-  					$id = $registro['id'];
   					$matricula = $registro['matricula'];
-  					$curso = $registro['curso'];
+            $alumno = $registro['alumno'];
+  					$nombre = $registro['nombre'];
             $profesor = $registro['profesor'];
             $periodo = $registro['periodo'];
             $calif = $registro['calif'];
-  					echo "<tr
+  					echo "<tr 
   							onMouseOver='javascript:this.bgColor=\"#bcf5a9\";
   							this.style.cursor=\"pointer\";'
 
@@ -63,11 +64,12 @@ session_start();
 
   							onclick='javascript:window.location.href=\"./updCalificaciones.php?matricula=$matricula\";'>
 
-								<td width='50'>$matricula</td>
-								<td>$curso</td>
-                <td>$profesor</td>
-                <td>$periodo</td>
-                <td>$calif</td>
+								<td >$matricula</td>
+                <td >$alumno</td>
+								<td >$nombre</td>
+                <td >$profesor</td>
+                <td >$periodo</td>
+                <td >$calif</td>
 							</tr>";
   				}
   			//echo "	</table>
