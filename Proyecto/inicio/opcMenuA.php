@@ -19,14 +19,14 @@ session_start();
 			case 'Profesores':
 				top.frames[2].location.href="../profesores/shwProfesores.php"
 				break;
-			case'Materias':
-				top.frames[2].location.href="../materias/shwMaterias.php";
+			case'Cursos':
+				top.frames[2].location.href="../cursos/shwCursos.php";
 				break;
 			case'Alumonos':
 				top.frames[2].location.href="../alumnos/shwAlumnos.php";
 				break;
 			case'Calificaciones':
-				top.frames[2].location.href="../calificacione/shwCalificaciones.php";
+				top.frames[2].location.href="../calificaciones/shwCalificaciones.php";
 				break;
 			case'Terminar':
 				window.top.location.href="http://www.google.com";
@@ -55,7 +55,7 @@ session_start();
 		</tr>
 		<tr>
 			<td>
-				<input type="button" value="Cursos" class="tamanoBoton" onclick="opcion('Materias');">
+				<input type="button" value="Cursos" class="tamanoBoton" onclick="opcion('Cursos');">
 			</td>
 		</tr>
 		<tr>

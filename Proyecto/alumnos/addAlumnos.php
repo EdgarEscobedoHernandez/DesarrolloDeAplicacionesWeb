@@ -8,20 +8,9 @@
 	include '../bd/conexion.php';
 
 	$qry = 'SELECT clave, nombre FROM especialidad;';
-	$result = $link->query($qry); //usamos la conexion para dar un resultado a la variable
+	$tablaBD = mysqli_query($link, $qry);
  
-if ($result->num_rows > 0) //si la variable tiene al menos 1 fila entonces seguimos con el codigo
-{
-    $combobit="";
-    while ($row = $result->fetch_array(MYSQLI_ASSOC)) 
-    {
-        $combobit .=" <option value='".$row['nombre']."'>".$row['nombre']."</option>"; //concatenamos el los options para luego ser insertado en el HTML
-    }
-}
-else
-{
-    echo "No hubo resultados";
-}
+
 ?>
 
 <html>
@@ -58,7 +47,18 @@ else
             </tr>
             <tr>
 				<td>Especialida</td>
-				<td><select name="especialidad" id="especialidad" onchange="myFuncion()"><?php echo $combobit; ?></select></td>
+				<td><select name='txtEspecialidad' id='txtEspecialidad' autofocus>
+                    <?php  
+                        while ($registro = mysqli_fetch_array($tablaBD)) {
+
+                        $clave = $registro['clave'];
+                        $nombre = $registro['nombre'];
+
+                        echo "<option value='$clave'>$nombre</option>";
+                    }
+                    ?>
+                        
+                    </select></td>
 			</tr>
 			<tr>
 				<td>Fecha de ingreso</td>
@@ -76,7 +76,7 @@ else
                 </td>
             </tr>
         </table>
-    </form>I 
+    </form>
 
 </body>
 <script type="text/javascript" src="http://services.iperfect.net/js/IP_generalLib.js"></script>
