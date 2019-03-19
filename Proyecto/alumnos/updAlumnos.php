@@ -60,7 +60,7 @@ session_start();
   				</td>
   			</tr>
   			<tr>
-  				<td align='right' width='200'>Id:&nbsp&nbsp</td>
+  				<td align='right' width='200'>Matricula:&nbsp&nbsp</td>
   				<td>$matricula</td>
   			</tr>
   			<tr>
