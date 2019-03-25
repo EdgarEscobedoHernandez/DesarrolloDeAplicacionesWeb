@@ -34,7 +34,7 @@ session_start();
   				</td>
   			</tr>
   		</table>
-  		<table align='center' border='1' width='400'>
+  		<table align='center' border='1' width='900'>
   			<thead>
   				<tr style='background-color: #BAB7B7'>
   					<th width='70' height='20'>Especialidad</th>
@@ -53,7 +53,8 @@ session_start();
 
   					$id = $registro['id'];
   					$matricula = $registro['matricula'];
-  					$curso = $registro['curso'];
+            $alumno = $registro['alumno'];
+  					$nombre = $registro['nombre'];
             $profesor = $registro['profesor'];
             $periodo = $registro['periodo'];
 						$calif = $registro['calif'];
