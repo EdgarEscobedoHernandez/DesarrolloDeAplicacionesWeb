@@ -7,7 +7,7 @@ session_start();
   }
 
   include '../bd/conexion.php';
-  $qry = 'SELECT * FROM calificacion WHERE profesor ORDER BY calificacion.matricula;';
+  $qry = 'SELECT * FROM calificacion ORDER BY calificacion.matricula;';
 
   $tablaBD = mysqli_query($link, $qry);
 
@@ -37,51 +37,23 @@ session_start();
   		<table align='center' border='1' width='400'>
   			<thead>
   				<tr style='background-color: #BAB7B7'>
-  					<th width='70' height='20'>Especialidad</th>
+  					<th width='70' height='20'>Matricula</th>
   					<th height='20'>Curso</th>
             <th height='20'>Profesor</th>
-            <th height='20'>Alumno</th>
+            <th height='20'>Periodo</th>
             <th height='20'>Calificacion</th>
   				</tr>
   			</thead>
   			<tbody style="overflow: auto;">
   				<?php
-					//desplegar los registros de la tabla especialidades de la bd
+  				//desplegar los registros de la tabla especialidades de la bd
   				while ( $registro = mysqli_fetch_array($tablaBD)) {
-
-						
-
   					$id = $registro['id'];
   					$matricula = $registro['matricula'];
   					$curso = $registro['curso'];
             $profesor = $registro['profesor'];
             $periodo = $registro['periodo'];
-						$calif = $registro['calif'];
-												
-						//CURSO Y ESPECIALIDAD
-						$qry = "SELECT * FROM curso WHERE clave = '$curso'";
-						$tablaCurso = mysqli_query($link, $qry);
-						$registroCurso = mysqli_fetch_array($tablaCurso);
-						$nombreCurso = $registroCurso['nombre'];
-						//$idCurso = $registroCurso['id'];
-						$nombreEspecialidad = $registroCurso['especialidad'];
-
-						//PROFESOR
-						$qry = "SELECT * FROM profesor WHERE clave = '$profesor'";
-						$tablaProfesor = mysqli_query($link, $qry);
-						$registroProfesor = mysqli_fetch_array($tablaProfesor);
-						$nombreProfesor = $registroProfesor['nombre'];
-						$paternoProfesor = $registroProfesor['paterno'];
-						$maternoProfesor = $registroProfesor['materno'];
-
-						//ALUMNO
-						$qry = "SELECT * FROM alumno WHERE matricula = '$matricula'";
-						$tablaAlumno = mysqli_query($link, $qry);
-						$registroAlumno = mysqli_fetch_array($tablaAlumno);
-						$nombreAlumno = $registroAlumno['nombre'];
-						$paternoAlumno = $registroAlumno['paterno'];
-						$maternoAlumno = $registroAlumno['materno'];
-
+            $calif = $registro['calif'];
   					echo "<tr
   							onMouseOver='javascript:this.bgColor=\"#bcf5a9\";
   							this.style.cursor=\"pointer\";'
@@ -91,16 +63,12 @@ session_start();
 
   							onclick='javascript:window.location.href=\"./updCalificaciones.php?matricula=$matricula\";'>
 
-								<td width='50'>$nombreEspecialidad</td>
-								<td>$nombreCurso</td>
-                <td>$nombreProfesor $paternoProfesor $maternoProfesor</td>
-                <td>$nombreAlumno $paternoAlumno $maternoAlumno</td>
+								<td width='50'>$matricula</td>
+								<td>$curso</td>
+                <td>$profesor</td>
+                <td>$periodo</td>
                 <td>$calif</td>
 							</tr>";
-
-							mysqli_free_result($link, $tablaCurso);// libera los registros de la tabla
-							mysqli_free_result($link, $tablaProfesor);// libera los registros de la tabla
-							mysqli_free_result($link, $tablaAlumno);// libera los registros de la tabla
   				}
   			//echo "	</table>
   					//</tbody>";
